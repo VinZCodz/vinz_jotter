@@ -1,5 +1,6 @@
 import { StateGraph, MemorySaver } from "@langchain/langgraph"
 import { ConversationState } from "./state.ts"
+import { SupervisorAgent } from "../supervisor/graph.ts"
 import * as model from "./model.ts"
 import fs from "fs/promises";
 
@@ -29,12 +30,8 @@ const isReadyToHandoff = (state: typeof ConversationState.State) => {
 
 const SupervisorHandoff = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------SupervisorHandoff--------------`);
-    // const response = await SupervisorAgent.invoke({
-    // implement handoff.        
-    //     });
-
-    // Clear the state.
-    return { messages: "<WIP>" };
+    const response = await SupervisorAgent.invoke({ state.topic, state.audience, state.tone, state.depth, state.formatting });
+    return { messages: response.finalWriteUp };
 };
 
 const processPostWriteUp = async (state: typeof ConversationState.State) => {

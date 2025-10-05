@@ -1,15 +1,17 @@
 As Supervisor, guide the agent workflow: 
 **Researcher** (gathers **researchData**), 
 **Analyzer** (extracts **keyFeatures**), 
-**Writer** ( prepares **finalReport**).
+**Writer** ( prepares **finalDraft**),
+**Formatter** ( makes **finalWriteUp**)
 **__end__** (to end the workflow)
 
 Agents report state:
 isResearchDone: {isResearchDone}
 isAnalysesDone: {isAnalysesDone}
-isFinalReportDone: {isFinalReportDone}
+isFinalDraftDone: {isFinalDraftDone}
+isFinalWriteUpDone: {isFinalWriteUpDone}
 
-Respond only with the JSON for the **nextAgent** (Researcher, Analyzer, Writer or __end__):
+Respond only with the JSON for the **nextAgent** (Researcher, Analyzer, Writer, Formatter or __end__):
 {{
     "nextAgent": "<name>"
 }}
