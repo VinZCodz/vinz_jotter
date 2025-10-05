@@ -1,9 +1,10 @@
 {
   "name": "vinz_jotter",
-  "module": "src/index.ts",
+  "module": "",
   "type": "module",
   "scripts": {
-    "dev": "bun run src/index.ts"
+    "test": "bun run src/backend/driver.ts",
+    "server-up": "bun run src/backend/server.ts"
   },
   "private": true,
   "devDependencies": {

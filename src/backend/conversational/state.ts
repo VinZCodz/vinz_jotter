@@ -5,10 +5,8 @@ export const ConversationState = Annotation.Root({
 
     topic: Annotation<string>,
     audience: Annotation<string>,
-    tone: Annotation<string>,,
+    tone: Annotation<string>,
     depth: Annotation<string>,
     formatting: Annotation<string>,
     isInfoCollected: Annotation<boolean>
 });
-
-
