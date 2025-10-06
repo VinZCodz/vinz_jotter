@@ -30,7 +30,7 @@ const isReadyToHandoff = (state: typeof ConversationState.State) => {
 
 const SupervisorHandoff = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------SupervisorHandoff--------------`);
-    const response = await SupervisorAgent.invoke({ topic: state.topic, audience: state.audience, tone: state.tone, depth: state.depth, formatting: state.formatting });
+    const response = await SupervisorAgent.invoke(state);
     return { messages: response.finalWriteUp };
 };
 

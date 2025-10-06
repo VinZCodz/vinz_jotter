@@ -1,7 +1,7 @@
 import { PromptTemplate } from "@langchain/core/prompts";
 import { StateGraph } from "@langchain/langgraph"
 import { SupervisorState } from "./state.ts"
-// import { ResearchAgent } from "../researcher/graph.ts"
+import { ResearchAgent } from "../researcher/graph.ts"
 // import { AnalyzerAgent } from "../analyzer/graph.ts"
 // import { WriterAgent } from "../writer/graph.ts"
 // import { FormatterAgent } from "../formatter/graph.ts"
@@ -30,9 +30,9 @@ const Supervisor = async (state: typeof SupervisorState.State) => {
 const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Researching!--------------`);
 
-    // const response = await ResearchAgent.invoke({ state.topic, state.audience, state.depth });
-    // return { response.researchData, nextAgent: 'Supervisor' };
-    return { researchData: ["WIP"], nextAgent: 'Supervisor' };
+    const { researchData } = await ResearchAgent.invoke(state);
+    return { researchData, nextAgent: 'Supervisor' };
+    //return { researchData: ["WIP"], nextAgent: 'Supervisor' };
 }
 
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
