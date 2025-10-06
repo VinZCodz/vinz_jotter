@@ -1,10 +1,10 @@
 import { PromptTemplate } from "@langchain/core/prompts";
 import { StateGraph } from "@langchain/langgraph"
 import { SupervisorState } from "./state.ts"
-import { ResearchAgent } from "../researcher/graph.ts"
-import { AnalyzerAgent } from "../analyzer/graph.ts"
-import { WriterAgent } from "../writer/graph.ts"
-import { FormatterAgent } from "../formatter/graph.ts"
+// import { ResearchAgent } from "../researcher/graph.ts"
+// import { AnalyzerAgent } from "../analyzer/graph.ts"
+// import { WriterAgent } from "../writer/graph.ts"
+// import { FormatterAgent } from "../formatter/graph.ts"
 import *  as model from "./model.ts"
 import fs from "fs/promises";
 
@@ -32,7 +32,7 @@ const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
 
     // const response = await ResearchAgent.invoke({ state.topic, state.audience, state.depth });
     // return { response.researchData, nextAgent: 'Supervisor' };
-    return { "WIP", nextAgent: 'Supervisor' };
+    return { researchData: ["WIP"], nextAgent: 'Supervisor' };
 }
 
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
@@ -40,7 +40,7 @@ const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
 
     // const response = await AnalyzerAgent.invoke({ state.topic, state.audience, state.depth, state.researchData });
     // return { response.keyFeatures, nextAgent: 'Supervisor' };
-    return { "WIP", nextAgent: 'Supervisor' };
+    return { keyFeatures: ["WIP"], nextAgent: 'Supervisor' };
 
 }
 
@@ -49,7 +49,7 @@ const WriterHandoff = async (state: typeof SupervisorState.State) => {
 
     // const response = await WriterAgent.invoke({ state.topic, state.audience, state.depth, state.researchData, state.tone, state.keyFeatures });
     // return { response.finalDraft, nextAgent: 'Supervisor' };
-    return { "WIP", nextAgent: 'Supervisor' };
+    return { finalDraft: "WIP", nextAgent: 'Supervisor' };
 }
 
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {
@@ -58,11 +58,26 @@ const FormatterHandoff = async (state: typeof SupervisorState.State) => {
     // const response = await FormatterAgent.invoke({ state.formatting, state.finalDraft });
     // return { response.finalWriteUp, nextAgent: 'Supervisor' };
 
-    return { "WIP", nextAgent: 'Supervisor' };
+    return { finalWriteUp: "WIP", nextAgent: 'Supervisor' };
 }
 
 const NextAgent = (state: typeof SupervisorState.State) => {
-    return state.nextAgent;
+    switch (state.nextAgent) {
+        case 'Supervisor':
+            return "Supervisor";
+        case 'Researcher':
+            return "ResearcherHandoff";
+        case 'Analyzer':
+            return "AnalyzerHandoff";
+        case 'Writer':
+            return "WriterHandoff";
+        case 'Formatter':
+            return "FormatterHandoff";
+        case 'End':
+            return "__end__";
+        default:
+            return "__end__";
+    }
 }
 
 const graph = new StateGraph(SupervisorState)
