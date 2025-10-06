@@ -30,29 +30,35 @@ const Supervisor = async (state: typeof SupervisorState.State) => {
 const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Researching!--------------`);
 
-    const response = await ResearchAgent.invoke({ state.topic, state.audience, state.depth });
-    return { response.researchData, nextAgent: 'Supervisor' };
+    // const response = await ResearchAgent.invoke({ state.topic, state.audience, state.depth });
+    // return { response.researchData, nextAgent: 'Supervisor' };
+    return { "WIP", nextAgent: 'Supervisor' };
 }
 
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Analyzing!--------------`);
 
-    const response = await AnalyzerAgent.invoke({ state.topic, state.audience, state.depth, state.researchData });
-    return { response.keyFeatures, nextAgent: 'Supervisor' };
+    // const response = await AnalyzerAgent.invoke({ state.topic, state.audience, state.depth, state.researchData });
+    // return { response.keyFeatures, nextAgent: 'Supervisor' };
+    return { "WIP", nextAgent: 'Supervisor' };
+
 }
 
 const WriterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Writing!--------------`);
 
-    const response = await WriterAgent.invoke({ state.topic, state.audience, state.depth, state.researchData, state.tone, state.keyFeatures });
-    return { response.finalDraft, nextAgent: 'Supervisor' };
+    // const response = await WriterAgent.invoke({ state.topic, state.audience, state.depth, state.researchData, state.tone, state.keyFeatures });
+    // return { response.finalDraft, nextAgent: 'Supervisor' };
+    return { "WIP", nextAgent: 'Supervisor' };
 }
 
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Formatting!--------------`);
 
-    const response = await FormatterAgent.invoke({ state.formatting, state.finalDraft });
-    return { response.finalWriteUp, nextAgent: 'Supervisor' };
+    // const response = await FormatterAgent.invoke({ state.formatting, state.finalDraft });
+    // return { response.finalWriteUp, nextAgent: 'Supervisor' };
+
+    return { "WIP", nextAgent: 'Supervisor' };
 }
 
 const NextAgent = (state: typeof SupervisorState.State) => {
