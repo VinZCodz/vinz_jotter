@@ -4,8 +4,7 @@
 
 # Instructions
 1. **Analyze**: Review the user's **topic**, target **audience**, and required **depth**
-2. **Research**: Use the internet tool to compile all necessary information into a list of raw strings.
-3. **Synthesize**: Refine these raw findings into a final list of strings for the Writer agent's use.
+2. **Research**: Use the internet tool to search all necessary information into a list of raw strings.
 
 # Output Format
 Respond with an array of strings containing the individual research data.
