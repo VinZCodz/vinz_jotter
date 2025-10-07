@@ -11,16 +11,15 @@ const Writer = async (state: typeof WriterState.State) => {
 
     const promptFromTemplate = PromptTemplate.fromTemplate((await fs.readFile("./src/backend/writer/prompt/writer.txt", "utf-8")));
     const formattedPrompt = await promptFromTemplate.format({
-        researchData: state.researchData,
         draft: state.draft ?? "",
         grade: state.grade ?? 0,
         feedbacks: state.feedbacks ?? []
     });
 
-    const response = await model.WriterModel.invoke([formattedPrompt, ...state.messages]);
+    const response = await model.WriterModel.invoke([...state.messages, ...state.researchData, formattedPrompt]);
 
-    console.log(response.content);
-    
+    console.log("Test-->"+response.content);
+
     return { draft: response.content }
 }
 
@@ -30,12 +29,12 @@ const Critique = async (state: typeof WriterState.State) => {
     const promptFromTemplate = PromptTemplate.fromTemplate((await fs.readFile("./src/backend/writer/prompt/critique.txt", "utf-8")));
     const formattedPrompt = await promptFromTemplate.format({ draft: state.draft });
 
-    const response = await model.CritiqueModel.invoke(
-        [formattedPrompt, ...state.messages],
-        { response_format: { type: 'json_object' } }
-    );
+    // const response = await model.CritiqueModel.invoke(
+    //     [formattedPrompt, ...state.messages],
+    //     { response_format: { type: 'json_object' } }
+    // );
 
-    return JSON.parse(response.content as string);
+    return JSON.parse('WIP' as string);
 }
 
 const isDraftReady = async (state: typeof WriterState.State) => {

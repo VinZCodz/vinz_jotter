@@ -4,10 +4,10 @@
 
 # Inputs:
 - **userData**: topic, audience, depth, tone
+- **researchData**: research on **userData** (array)
 - **keyFeatures**: essential points from **researchData**
 - **hookLines**: attention-grabbing lines matching **tone** and **audience**
 
-- **researchData**: {researchData}
 - **draft**: {draft}
 - **grade**: {grade}
 - **feedbacks**: {feedbacks}
