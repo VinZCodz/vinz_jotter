@@ -9,7 +9,8 @@
     
     "test-conversational": "bun run src/backend/conversational/conversationalTest.ts",
     "test-supervisor": "bun run src/backend/supervisor/supervisorTest.ts",
-    "test-researcher": "bun run src/backend/researcher/researcherTest.ts"
+    "test-researcher": "bun run src/backend/researcher/researcherTest.ts",
+    "test-analyzer": "bun run src/backend/analyzer/analyzerTest.ts"
 
   },
   "private": true,
