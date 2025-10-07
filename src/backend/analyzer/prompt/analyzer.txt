@@ -2,7 +2,7 @@
 
 Analyze the provided **researchData** in the context of the **user data** (**topic, audience, depth**).
 
-1.  Extract the most **critical, interesting, and relevant findings, trends, or statistics** into a `keyFeatures` array.
+1.  Per **researchData** item: Extract the most consice **critical | interesting | relevant findings | trends | statistics** into a `keyFeatures` array.
 2.  Generate **two relevant hook lines** to capture the audience's attention into a `hookLines` array.
 
 **Strictly use *only* the data provided.**
