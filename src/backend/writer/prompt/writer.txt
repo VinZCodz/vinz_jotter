@@ -4,14 +4,15 @@
 
 # Inputs:
 - **userData**: topic, audience, depth, tone
-- **researchData**: research on **userData** (array)
 - **keyFeatures**: essential points from **researchData**
 - **hookLines**: attention-grabbing lines matching **tone** and **audience**
+
+- **researchData**: {researchData}
 - **draft**: {draft}
 - **grade**: {grade}
 - **feedbacks**: {feedbacks}
 
 # Task:
-Using **userData**, **researchData**, and Critique Agent **feedbacks** and **garde**, revise and generate the **draft** to achieve a passing grade 80, iteratively.
+Using **userData**, **researchData**, and Critique Agent **feedbacks** and **grade**, revise and generate the **draft** to achieve a passing grade 80, iteratively.
 
 # Output Format: string

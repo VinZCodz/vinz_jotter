@@ -4,7 +4,7 @@
 
 # Inputs:
 - **userData**: topic, audience, depth, tone
-- **keyFeatures**: essential points from **researchData**
+- **keyFeatures**: essential points
 - **hookLines**: attention-grabbing lines
 
 - **draft** to be rated: {draft}

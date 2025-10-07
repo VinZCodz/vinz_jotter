@@ -3,10 +3,13 @@ import { WriterAgent } from "./graph.ts"
 const main = async () => {
     let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData, keyFeatures: keyFeatures, hookLines: hookLines };
 
-    const { draft } = await WriterAgent.invoke({ messages: [
-        { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) } ,
-        { role: "ai", content: JSON.stringify(state, ['researchData', 'keyFeatures', 'hookLines']) } 
-    ]});
+    const { draft } = await WriterAgent.invoke({ 
+        messages: [
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) } ,
+            { role: "ai", content: JSON.stringify(state, ['keyFeatures', 'hookLines']) } 
+            ],
+        researchData: state.researchData 
+    });
 
     console.log(`finalDraft:\n ${draft}`);
 }
