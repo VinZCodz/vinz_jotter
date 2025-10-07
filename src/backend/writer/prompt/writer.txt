@@ -8,7 +8,7 @@
 - **keyFeatures**: essential points from **researchData**
 - **hookLines**: attention-grabbing lines matching **tone** and **audience**
 - **draft**: {draft}
-- **garde**: {garde}
+- **grade**: {grade}
 - **feedbacks**: {feedbacks}
 
 # Task:

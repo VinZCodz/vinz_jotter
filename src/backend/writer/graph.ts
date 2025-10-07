@@ -11,21 +11,21 @@ const Writer = async (state: typeof WriterState.State) => {
 
     const promptFromTemplate = PromptTemplate.fromTemplate((await fs.readFile("./src/backend/writer/prompt/writer.txt", "utf-8")));
     const formattedPrompt = await promptFromTemplate.format({
-        draft: state.draft,
-        grade: state.grade,
-        feedbacks: state.feedbacks
+        draft: state.draft ?? "",
+        grade: state.grade ?? 0,
+        feedbacks: state.feedbacks ?? []
     });
 
     const response = await model.WriterModel.invoke([formattedPrompt, ...state.messages]);
 
-    return { draft: response.content}
+    return { draft: response.content }
 }
 
 const Critique = async (state: typeof WriterState.State) => {
     console.log(`\n\n------------CritiqueAgent--------------`);
 
     const promptFromTemplate = PromptTemplate.fromTemplate((await fs.readFile("./src/backend/writer/prompt/critique.txt", "utf-8")));
-    const formattedPrompt = await promptFromTemplate.format({draft: state.draft});
+    const formattedPrompt = await promptFromTemplate.format({ draft: state.draft });
 
     const response = await model.CritiqueModel.invoke(
         [formattedPrompt, ...state.messages],
@@ -36,6 +36,8 @@ const Critique = async (state: typeof WriterState.State) => {
 }
 
 const isDraftReady = async (state: typeof WriterState.State) => {
+    console.log(JSON.stringify(state));
+    return "__end__";
     if (state.grade < THRESHOLD_GRADE) {
         return "Writer";
     }
