@@ -2,7 +2,7 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import { StateGraph } from "@langchain/langgraph"
 import { SupervisorState } from "./state.ts"
 import { ResearchAgent } from "../researcher/graph.ts"
-// import { AnalyzerAgent } from "../analyzer/graph.ts"
+import { AnalyzerAgent } from "../analyzer/graph.ts"
 // import { WriterAgent } from "../writer/graph.ts"
 // import { FormatterAgent } from "../formatter/graph.ts"
 import *  as model from "./model.ts"

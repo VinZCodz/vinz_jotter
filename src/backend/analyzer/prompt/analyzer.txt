@@ -12,7 +12,7 @@ Analyze the provided **researchData** in the context of the **user data** (**top
 - **research data**: {researchData}
 
 **Output Format (JSON):**
-{
+{{
     "keyFeatures": ["Feature 1", "Feature n"],
     "hookLines": ["Hook 1", "Hook 2"]
-}
+}}
