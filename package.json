@@ -8,7 +8,8 @@
     "test-e2e": "bun run src/backend/jotterTest.ts",
     
     "test-conversational": "bun run src/backend/conversational/conversationalTest.ts",
-    "test-supervisor": "bun run src/backend/supervisor/supervisorTest.ts"
+    "test-supervisor": "bun run src/backend/supervisor/supervisorTest.ts",
+    "test-researcher": "bun run src/backend/researcher/researcherTest.ts"
 
   },
   "private": true,

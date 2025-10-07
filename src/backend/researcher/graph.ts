@@ -11,23 +11,14 @@ const researcherPrompt = { role: "system", content: (await fs.readFile("./src/ba
 const Researcher = async (state: typeof ResearcherState.State) => {
     console.log(`\n\n------------ResearcherAgent--------------`);
 
-    { role: "user", content: `${state.topic}`}
-    const response = await model.ResearcherModel.invoke(
-        [researcherPrompt, ],
-    );
-
-    return JSON.parse(response.content as string);
+    const response = await model.ResearcherModel.invoke([researcherPrompt,state.messages]);
+    return {researchData: response.content};
 }
+
 const Tools = new ToolNode(availableTools);
 
-const callModel = async (state) => {
-    const response = await model.invoke(state.messages);
-    return { messages: [response] };
-}
-
 const isToolCall = ({ messages }) => {
-    const lastMessages = messages.at(-1);
-    if (lastMessages.tool_calls?.length)
+    if (messages.at(-1).tool_calls?.length)
         return "Tools";
     else
         return "__end__"

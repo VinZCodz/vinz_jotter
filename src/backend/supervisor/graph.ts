@@ -30,9 +30,8 @@ const Supervisor = async (state: typeof SupervisorState.State) => {
 const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Researching!--------------`);
 
-    const { researchData } = await ResearchAgent.invoke(state);
+    const { researchData } = await ResearchAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth'])}] });
     return { researchData, nextAgent: 'Supervisor' };
-    //return { researchData: ["WIP"], nextAgent: 'Supervisor' };
 }
 
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {

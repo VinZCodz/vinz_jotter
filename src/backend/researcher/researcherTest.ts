@@ -1,15 +1,15 @@
-import * as readline from 'node:readline/promises';
-import { ReflectionAgent } from "./graph.ts";
+import { ResearchAgent } from "./graph.ts"
 
 const main = async () => {
+    const state={ topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md" };
 
-        const response = await ReflectionAgent.invoke({ messages: [{ role: "user", content: userPrompt }] });
-        console.log(`Write Up:\n ${response.generation}`);
+    const { researchData } = await ResearchAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth'])}] });
+
+    console.log(`Write Up:\n ${researchData}`);
 
 }
 
 await main()
     .finally(() => {
         console.warn(`\nBye!\n`);
-        rl.close()
     });
