@@ -3,7 +3,7 @@ import { StateGraph } from "@langchain/langgraph"
 import { SupervisorState } from "./state.ts"
 import { ResearchAgent } from "../researcher/graph.ts"
 import { AnalyzerAgent } from "../analyzer/graph.ts"
-// import { WriterAgent } from "../writer/graph.ts"
+import { WriterAgent } from "../writer/graph.ts"
 // import { FormatterAgent } from "../formatter/graph.ts"
 import *  as model from "./model.ts"
 import fs from "fs/promises";
@@ -44,9 +44,8 @@ const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
 const WriterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Writing!--------------`);
 
-    // const response = await WriterAgent.invoke({ state.topic, state.audience, state.depth, state.researchData, state.tone, state.keyFeatures });
-    // return { response.finalDraft, nextAgent: 'Supervisor' };
-    return { finalDraft: "WIP", nextAgent: 'Supervisor' };
+    const { finalDraft: draft } = await WriterAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) }], researchData: state.researchData, keyFeatures: state.keyFeatures, hookLines: state.hookLines  });
+    return { finalDraft, nextAgent: 'Supervisor' };
 }
 
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {
