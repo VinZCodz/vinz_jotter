@@ -5,3 +5,15 @@
 **Action:** Analyze the generation. Identify **exactly two** clear, concise points for improvement (e.g., tone, focus, length, clarity, missing elements). Avoid generic feedback. Focus only on the generation's shortcomings relative to the query.
 
 **Output Format:** string (A brief, direct list or paragraph of 1-3 sentences)
+
+
+Grading parameters:
+topic: Annotation<string>, //All Agents
+audience: Annotation<string>, //All Agents
+depth: Annotation<string>, // All Agents
+
+researchData: Annotation<string[]>, //Analyzer and Writer 
+
+tone: Annotation<string>, //Writer and Editor
+keyFeatures: Annotation<string[]>, //Writer and Editor
+hookLines: Annotation<string[]>

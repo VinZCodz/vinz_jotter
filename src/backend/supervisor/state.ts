@@ -9,6 +9,7 @@ export const SupervisorState = Annotation.Root({
 
     tone: Annotation<string>, //Writer and Editor
     keyFeatures: Annotation<string[]>, //Writer and Editor
+    hookLines: Annotation<string[]>,//Writer and Editor
 
     formatting: Annotation<string>, // Formatter
     finalDraft: Annotation<string>, // Formatter

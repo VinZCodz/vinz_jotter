@@ -1,8 +1,9 @@
 import { Annotation, MessagesAnnotation } from "@langchain/langgraph";
 
-export const ResearcherState = Annotation.Root({
+export const AnalyzerState = Annotation.Root({
     ...MessagesAnnotation.spec,
+    researchData: Annotation<string[]>,
 
-    topic: Annotation<string>,
-    researchData: Annotation<string[]>
+    keyFeatures: Annotation<string[]>,
+    hookLines: Annotation<string[]>
 });
