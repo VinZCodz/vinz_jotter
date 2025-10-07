@@ -1,7 +1,7 @@
 import { TavilySearch } from "@langchain/tavily";
 
 const search = new TavilySearch({
-    maxResults: 10,
+    maxResults: 20,
     topic: "general",
 });
 
