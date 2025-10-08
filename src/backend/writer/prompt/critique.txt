@@ -24,9 +24,9 @@ If **grade** < 80, provide specific, actionable **feedbacks**. Each feedback mus
 # Output Format:
 A JSON object using this exact structure:
 {{
+    "grade": 56,
     "feedbacks": [
         "Pointer 1 (e.g., Increase 'depth' by adding a statistical example): +5%",
         "Pointer 2 (e.g., Adjust 'tone' in the conclusion to be more encouraging): +3%"
-    ],
-    "grade": 56
+    ]
 }}

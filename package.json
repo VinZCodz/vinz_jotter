@@ -4,15 +4,14 @@
   "type": "module",
   "scripts": {
     "serverup": "bun run src/backend/server.ts",
-
     "test:e2e": "bun run src/backend/jotterTest.ts",
     
     "test:conversational": "bun run src/backend/conversational/conversationalTest.ts",
     "test:supervisor": "bun run src/backend/supervisor/supervisorTest.ts",
     "test:researcher": "bun run src/backend/researcher/researcherTest.ts",
     "test:analyzer": "bun run src/backend/analyzer/analyzerTest.ts",
-    "test:writer": "bun run src/backend/writer/writerTest.ts"
-
+    "test:writer": "bun run src/backend/writer/writerTest.ts",
+    "test:formatter": "bun run src/backend/formatter/formatterTest.ts"
   },
   "private": true,
   "devDependencies": {

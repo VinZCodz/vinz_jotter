@@ -12,7 +12,7 @@ Prioritize readability, indentation, and renderer compatibility (e.g., proper Ma
 **Strictly** preserve the content and meaning of **finalDraft**.
 
 # Output Format (JSON object):
-{{
+{
     "finalWriteUp": <formatted string>
-}}
+}
  

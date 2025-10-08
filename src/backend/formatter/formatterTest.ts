@@ -1,9 +1,9 @@
 import { FormatterAgent } from "./graph.ts"
 
 const main = async () => {
-    let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", finalDraft: finalDraft};
+    let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", finalDraft: finalDraft };
 
-    const {finalWriteUp} = await FormatterAgent.invoke({
+    const { finalWriteUp } = await FormatterAgent.invoke({
         messages: [
             { role: "user", content: JSON.stringify(state, ['formatting']) },
             { role: "ai", content: state.finalDraft }
@@ -13,7 +13,7 @@ const main = async () => {
     console.log(`finalWriteUp:\n ${finalWriteUp}`);
 }
 
-const finalDraft = ` ## Quantum Entanglement: The Phenomenon Revolutionizing Quantum Technology
+const finalDraft = `## Quantum Entanglement: The Phenomenon Revolutionizing Quantum Technology
 
 What if tweaking a particle in your lab instantly decided the fate of its twin in another galaxy? This isn't a plot from a sci-fi movie; it's the reality of quantum entanglement, a phenomenon that's revolutionizing the field of quantum technology. Entanglement isn’t just a fascinating aspect of quantum mechanics; it’s the engine behind unbreakable codes and computers that check a million answers at once.
 
