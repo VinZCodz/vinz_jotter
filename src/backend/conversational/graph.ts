@@ -31,10 +31,8 @@ const isReadyToHandoff = (state: typeof ConversationState.State) => {
 const SupervisorHandoff = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------SupervisorHandoff--------------`);
 
-    return { messages: { role: "ai", content: finalWriteUp }  };
-
-    // const response = await SupervisorAgent.invoke(state);
-    // return { messages: { role: "ai", content: response.finalWriteUp }  };
+    const response = await SupervisorAgent.invoke(state);
+    return { messages: { role: "ai", content: response.finalWriteUp }  };
 };
 
 const processPostWriteUp = async (state: typeof ConversationState.State) => {
