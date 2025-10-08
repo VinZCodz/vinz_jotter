@@ -10,14 +10,12 @@
 
 # Task:
 Tailor content using **researchData**, enriching it with **keyFeatures** and **hookLines**.
-
 ---
-
 # Iterative Review (After Critique Agent):
 - **draft**: {draft}
 - **grade**: {grade}
 - **feedbacks**: {feedbacks}
 
-Revise **draft** using **feedbacks** to achieve a passing **grade** (>= 80). Repeat until goal met.
+Revise **draft** using **feedbacks** (special attention on estimated grade increase e.g., "+5%") to achieve a passing **grade** (>= 80). Repeat until goal met.
 
 # Output Format: strictly your writeup string.

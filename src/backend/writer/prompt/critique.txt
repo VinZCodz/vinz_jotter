@@ -7,9 +7,10 @@
 - **keyFeatures**: essential points
 - **hookLines**: attention-grabbing lines
 - **draft**: {draft}
+- **previous feedbacks**: {feedbacks}
 
 # Task:
-Calculate final **grade** (0-100) based on **draft**'s adherence to the **Grading Parameters**.
+Calculate final **grade** (0-100) based on **draft**'s adherence to the **Grading Parameters** primarily and potential grade increase from **previous feedbacks** if implemented.
 
 If **grade** < 80, provide specific, actionable **feedbacks**. Each feedback must detail the estimated grade increase (e.g., "+5%"). If **grade** >= 80, leave **feedbacks** empty.
 

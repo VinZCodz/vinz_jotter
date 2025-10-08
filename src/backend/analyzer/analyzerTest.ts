@@ -3,7 +3,7 @@ import { AnalyzerAgent } from "./graph.ts"
 const main = async () => {
     let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData };
 
-    const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth']) }], researchData: state.researchData });
+    const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) }], researchData: state.researchData });
 
     console.log(`keyFeatures:\n ${keyFeatures}`);
     console.log(`hookLines:\n ${hookLines}`);

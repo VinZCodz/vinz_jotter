@@ -27,7 +27,8 @@ const Critique = async (state: typeof WriterState.State) => {
     console.log(`\n\n------------CritiqueAgent--------------`);
 
     const promptFromTemplate = PromptTemplate.fromTemplate((await fs.readFile("./src/backend/writer/prompt/critique.txt", "utf-8")));
-    const formattedPrompt = await promptFromTemplate.format({ draft: state.draft });
+    const formattedPrompt = await promptFromTemplate.format(
+        { draft: state.draft, feedbacks: state.feedbacks ?? [] });
 
     const response = await model.CritiqueModel.invoke(
         [formattedPrompt, ...state.messages],
