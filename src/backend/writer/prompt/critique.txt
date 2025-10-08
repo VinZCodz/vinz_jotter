@@ -1,25 +1,25 @@
 **Critique Agent**
 
-# Goal: Grade and provide constructive feedback on the **draft**.
+# Goal: Grade **draft** and provide constructive feedback.
 
 # Inputs:
 - **userData**: topic, audience, depth, tone
 - **keyFeatures**: essential points
 - **hookLines**: attention-grabbing lines
-
-- **draft** to be rated: {draft}
+- **draft**: {draft}
 
 # Task:
-Critique the **draft** and calculate the final **grade** (0-100) based on how well it addresses the **Grading Parameters**. Provide specific, actionable **feedbacks** detailing the expected grade increase for each pointer.
+Calculate final **grade** (0-100) based on **draft**'s adherence to the **Grading Parameters**.
+
+If **grade** < 80, provide specific, actionable **feedbacks**. Each feedback must detail the estimated grade increase (e.g., "+5%"). If **grade** >= 80, leave **feedbacks** empty.
 
 ## Grading Parameters:
-- **topic**, **audience**, **depth**, **tone** (from **userData**)
-- **keyFeatures** (Inclusion and effective use)
-- **hookLines** (Effective incorporation)
+- Alignment with **userData** (topic, audience, depth, tone).
+- Inclusion and effective use of **keyFeatures**.
+- Effective incorporation of **hookLines**.
 
 # Output Format:
-A JSON object using the exact structure below. Each feedback item must estimate the potential grade increase (in percentage points) if implemented.
-
+A JSON object using this exact structure:
 {{
     "feedbacks": [
         "Pointer 1 (e.g., Increase 'depth' by adding a statistical example): +5%",
