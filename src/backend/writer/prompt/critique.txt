@@ -25,5 +25,5 @@ A JSON object using the exact structure below. Each feedback item must estimate 
         "Pointer 1 (e.g., Increase 'depth' by adding a statistical example): +5%",
         "Pointer 2 (e.g., Adjust 'tone' in the conclusion to be more encouraging): +3%"
     ],
-    "grade": 85
+    "grade": 56
 }}
