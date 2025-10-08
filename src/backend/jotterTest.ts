@@ -2,22 +2,17 @@ import * as readline from 'node:readline/promises';
 import { JotterAgent } from "./conversational/graph.ts";
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-
 const main = async () => {
+    const sessionId = 1;
     while (true) {
-        const userPrompt = await rl.question(`You :\n`);
-        if (userPrompt === '/bye') {
+        const message = await rl.question(`You :\n`);
+        if (message === '/bye') {
             break;
         }
+        const threadConfig = { configurable: { thread_id: sessionId } };
+        const { finalWriteUp } = await JotterAgent.invoke({ messages: [{ role: "user", content: message }] }, threadConfig);
 
-        const threadConfig = { configurable: { thread_id: "1" } };
-        // const response = await JotterAgent.invoke({ messages: [{ role: "user", content: userPrompt }] }, threadConfig);
-        // console.log(`Jotter:\n ${response.messages.at(-1)?.content}`);
-
-        const response = await JotterAgent.stream({ messages: [{ role: "user", content: userPrompt }] }, threadConfig);
-        for await (const chunk of response) {
-            console.log(chunk);
-        }
+        console.log(`Jotter:\n ${finalWriteUp}`);
     }
 }
 

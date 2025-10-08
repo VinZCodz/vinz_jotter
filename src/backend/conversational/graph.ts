@@ -30,13 +30,20 @@ const isReadyToHandoff = (state: typeof ConversationState.State) => {
 
 const SupervisorHandoff = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------SupervisorHandoff--------------`);
-    const response = await SupervisorAgent.invoke(state);
-    return { messages: response.finalWriteUp };
+    const { finalWriteUp } = await SupervisorAgent.invoke(state);
+    return { finalWriteUp, messages: finalWriteUp };
 };
 
 const processPostWriteUp = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------processPostWriteUp--------------`);
-    // Clear the state.
+    
+    // TODO: 
+    // - Generate a Conversation ID.
+    // - Summarize the overall conversation for audit trail | history like features.
+    // - Archive to DB store.
+    // - Just store the Conversation ID in check pointer.
+    // - Clear the state.
+
     return "__end__";
 };
 

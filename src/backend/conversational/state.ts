@@ -8,5 +8,8 @@ export const ConversationState = Annotation.Root({
     tone: Annotation<string>,
     depth: Annotation<string>,
     formatting: Annotation<string>,
-    isInfoCollected: Annotation<boolean>
+    
+    isInfoCollected: Annotation<boolean>,
+
+    finalWriteUp: Annotation<string>
 });

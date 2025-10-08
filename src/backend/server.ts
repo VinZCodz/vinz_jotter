@@ -20,10 +20,11 @@ app.post('/v1/chat', async (req, res) => {
         console.log(`Received new user message: ${message} at session: ${sessionId}`);
 
         const threadConfig = { configurable: { thread_id: sessionId } };
-        const response = await JotterAgent.invoke({ messages: [{ role: "user", content: message }] }, threadConfig);
+        const { finalWriteUp } = await JotterAgent.invoke({ messages: [{ role: "user", content: message }] }, threadConfig);
 
-        res.status(201).json({ message: response.messages.at(-1)?.content });
-    } catch (error) {
+        res.status(201).json({ message: finalWriteUp });
+    }
+    catch (error) {
         console.error('Error while responding to the user message:', error);
         res.status(500).json({ message: 'Failed to respond!' });
     }
