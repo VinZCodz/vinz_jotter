@@ -6,13 +6,18 @@
 - **userData**: topic, audience, depth, tone
 - **researchData**: research on **userData** (array)
 - **keyFeatures**: essential points from **researchData**
-- **hookLines**: attention-grabbing lines matching **tone** and **audience**
+- **hookLines**: attention-grabbing lines (matches **tone/audience**)
 
+# Task:
+Tailor content using **researchData**, enriching it with **keyFeatures** and **hookLines**.
+
+---
+
+# Iterative Review (After Critique Agent):
 - **draft**: {draft}
 - **grade**: {grade}
 - **feedbacks**: {feedbacks}
 
-# Task:
-Using **userData**, **researchData**, and Critique Agent **feedbacks** and **grade**, revise and generate the **draft** to achieve a passing grade 80, iteratively.
+Revise **draft** using **feedbacks** to achieve a passing **grade** (>= 80). Repeat until goal met.
 
-# Output Format: string
+# Output Format: strictly your writeup string.
