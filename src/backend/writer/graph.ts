@@ -20,8 +20,6 @@ const Writer = async (state: typeof WriterState.State) => {
         ...state.messages, ...state.researchData, formattedPrompt
     ]);
 
-    console.log("Writer-->"+response.content);
-
     return { draft: response.content }
 }
 
@@ -36,8 +34,6 @@ const Critique = async (state: typeof WriterState.State) => {
         [formattedPrompt, ...state.messages],
         { response_format: { type: 'json_object' } }
     );
-
-    console.log("Critique-->"+JSON.stringify(response.content));
 
     return JSON.parse(response.content as string);
 }

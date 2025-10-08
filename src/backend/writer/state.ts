@@ -5,7 +5,7 @@ export const WriterState = Annotation.Root({
     researchData: Annotation<string[]>,
 
     draft: Annotation<string>,
-    
+
     feedbacks: Annotation<string[]>,
     grade: Annotation<number>
 });

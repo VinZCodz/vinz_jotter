@@ -30,10 +30,10 @@ const Supervisor = async (state: typeof SupervisorState.State) => {
 const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Researching!--------------`);
 
-    const { researchData } = await ResearchAgent.invoke({ 
+    const { researchData } = await ResearchAgent.invoke({
         messages: [
-            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth'])}
-        ] 
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth']) }
+        ]
     });
     return { researchData, nextAgent: 'Supervisor' };
 }
@@ -41,13 +41,13 @@ const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Analyzing!--------------`);
 
-     const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ 
+    const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({
         messages: [
-            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone'])}
-        ], 
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) }
+        ],
         researchData: state.researchData
     });
-    return { keyFeatures,hookLines, nextAgent: 'Supervisor' };
+    return { keyFeatures, hookLines, nextAgent: 'Supervisor' };
 }
 
 const WriterHandoff = async (state: typeof SupervisorState.State) => {
@@ -66,7 +66,7 @@ const WriterHandoff = async (state: typeof SupervisorState.State) => {
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Formatting!--------------`);
 
-    const {finalWriteUp} = await FormatterAgent.invoke({
+    const { finalWriteUp } = await FormatterAgent.invoke({
         messages: [
             { role: "user", content: JSON.stringify(state, ['formatting']) },
             { role: "ai", content: state.finalDraft }
