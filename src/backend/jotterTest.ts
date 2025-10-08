@@ -10,9 +10,9 @@ const main = async () => {
             break;
         }
         const threadConfig = { configurable: { thread_id: sessionId } };
-        const { finalWriteUp } = await JotterAgent.invoke({ messages: [{ role: "user", content: message }] }, threadConfig);
+        const response = await JotterAgent.invoke({ messages: [{ role: "user", content: message }] }, threadConfig);
 
-        console.log(`Jotter:\n ${finalWriteUp}`);
+        console.log(`Jotter:\n ${response.messages.at(-1)?.content}`);
     }
 }
 

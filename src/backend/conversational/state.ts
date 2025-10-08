@@ -10,6 +10,4 @@ export const ConversationState = Annotation.Root({
     formatting: Annotation<string>,
     
     isInfoCollected: Annotation<boolean>,
-
-    finalWriteUp: Annotation<string>
 });
