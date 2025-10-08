@@ -1,0 +1,18 @@
+**Formatter Agent**
+
+# Goal: Format the **finalDraft** to the specified **formatting** style.
+
+# Inputs:
+- **formatting**: User-defined style.
+- **finalDraft**: Content to be formatted.
+
+# Task:
+Convert **finalDraft** to the user-specified **formatting** style.
+Prioritize readability, indentation, and renderer compatibility (e.g., proper Markdown, HTML, etc.).
+**Strictly** preserve the content and meaning of **finalDraft**.
+
+# Output Format (JSON object):
+{{
+    "finalWriteUp": <formatted string>
+}}
+ 

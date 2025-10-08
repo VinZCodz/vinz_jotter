@@ -4,7 +4,7 @@ import { SupervisorState } from "./state.ts"
 import { ResearchAgent } from "../researcher/graph.ts"
 import { AnalyzerAgent } from "../analyzer/graph.ts"
 import { WriterAgent } from "../writer/graph.ts"
-// import { FormatterAgent } from "../formatter/graph.ts"
+import { FormatterAgent } from "../formatter/graph.ts"
 import *  as model from "./model.ts"
 import fs from "fs/promises";
 
@@ -66,10 +66,13 @@ const WriterHandoff = async (state: typeof SupervisorState.State) => {
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Formatting!--------------`);
 
-    // const response = await FormatterAgent.invoke({ state.formatting, state.finalDraft });
-    // return { response.finalWriteUp, nextAgent: 'Supervisor' };
-
-    return { finalWriteUp: "WIP", nextAgent: 'Supervisor' };
+    const {finalWriteUp} = await FormatterAgent.invoke({
+        messages: [
+            { role: "user", content: JSON.stringify(state, ['formatting']) },
+            { role: "ai", content: state.finalDraft }
+        ]
+    });
+    return { finalWriteUp, nextAgent: 'Supervisor' };
 }
 
 const NextAgent = (state: typeof SupervisorState.State) => {
