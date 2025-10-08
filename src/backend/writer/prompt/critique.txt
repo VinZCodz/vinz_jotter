@@ -10,7 +10,9 @@
 - **previous feedbacks**: {feedbacks}
 
 # Task:
-Calculate final **grade** (0-100) based on **draft**'s adherence to the **Grading Parameters** primarily and potential grade increase from **previous feedbacks** if implemented.
+Calculate final **grade** (0-100) based on **draft**'s adherence to the following:
+1. **Grading Parameters** primarily 
+2. Iff implemented, check and award grade increases from **previous feedbacks**
 
 If **grade** < 80, provide specific, actionable **feedbacks**. Each feedback must detail the estimated grade increase (e.g., "+5%"). If **grade** >= 80, leave **feedbacks** empty.
 

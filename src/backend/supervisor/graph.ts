@@ -30,22 +30,37 @@ const Supervisor = async (state: typeof SupervisorState.State) => {
 const ResearcherHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Researching!--------------`);
 
-    const { researchData } = await ResearchAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth'])}] });
+    const { researchData } = await ResearchAgent.invoke({ 
+        messages: [
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth'])}
+        ] 
+    });
     return { researchData, nextAgent: 'Supervisor' };
 }
 
 const AnalyzerHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Analyzing!--------------`);
 
-     const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone'])}], researchData: state.researchData});
+     const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ 
+        messages: [
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone'])}
+        ], 
+        researchData: state.researchData
+    });
     return { keyFeatures,hookLines, nextAgent: 'Supervisor' };
 }
 
 const WriterHandoff = async (state: typeof SupervisorState.State) => {
     console.log(`------------Writing!--------------`);
 
-    const { finalDraft: draft } = await WriterAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) }], researchData: state.researchData, keyFeatures: state.keyFeatures, hookLines: state.hookLines  });
-    return { finalDraft, nextAgent: 'Supervisor' };
+    const { draft } = await WriterAgent.invoke({
+        messages: [
+            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) },
+            { role: "ai", content: JSON.stringify(state, ['keyFeatures', 'hookLines']) }
+        ],
+        researchData: state.researchData
+    });
+    return { finalDraft: draft, nextAgent: 'Supervisor' };
 }
 
 const FormatterHandoff = async (state: typeof SupervisorState.State) => {

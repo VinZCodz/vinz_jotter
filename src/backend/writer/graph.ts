@@ -16,7 +16,9 @@ const Writer = async (state: typeof WriterState.State) => {
         feedbacks: state.feedbacks ?? []
     });
 
-    const response = await model.WriterModel.invoke([...state.messages, ...state.researchData, formattedPrompt]);
+    const response = await model.WriterModel.invoke([
+        ...state.messages, ...state.researchData, formattedPrompt
+    ]);
 
     console.log("Writer-->"+response.content);
 
