@@ -3,7 +3,7 @@
   "module": "",
   "type": "module",
   "scripts": {
-    "serverup": "bun run src/backend/server.ts",
+    "server:up": "bun run src/backend/server.ts",
     "test:e2e": "bun run src/backend/jotterTest.ts",
     
     "test:converse": "bun run src/backend/conversational/conversationalTest.ts",
