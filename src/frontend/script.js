@@ -12,7 +12,7 @@ const generate = async (text) => {
     userDiv.className = 'flex justify-end';
 
     const msgDiv = document.createElement('div');
-    msgDiv.className = 'bg-blue-600 text-white rounded-xl rounded-br-none p-4 shadow-lg max-w-lg';
+    msgDiv.className = 'bg-blue-600 text-white rounded-3xl rounded-br-none p-4 shadow-lg';
     msgDiv.textContent = text;
 
     userDiv.appendChild(msgDiv);
@@ -32,13 +32,15 @@ const generate = async (text) => {
 
     const aiDiv = document.createElement('div');
     aiDiv.className = 'flex justify-start';
-    
-    const responseDiv=document.createElement('div');
-    responseDiv.className=  (llmResponse.startsWith("```") ? 
-                                'whitespace-pre font-mono bg-gray-900 text-green-300' : 
-                                'bg-zinc-700 text-gray-100'
-                            ) + 
-                            'rounded-xl rounded-tl-none p-4 shadow-lg max-w-lg overflow-x-auto';
+
+    const responseDiv = document.createElement('div');
+    responseDiv.className = "bg-zinc-600 text-white rounded-3xl rounded-tl-none p-4 shadow-lg"
+
+    if (llmResponse.startsWith("```")) {
+        llmResponse = llmResponse.slice(4);
+        responseDiv.className += " whitespace-pre-wrap font-mono";
+    }
+
     responseDiv.textContent = llmResponse;
 
     loader.remove();
