@@ -32,7 +32,7 @@ const SupervisorHandoff = async (state: typeof ConversationState.State) => {
     console.log(`\n\n------------SupervisorHandoff--------------`);
 
     const response = await SupervisorAgent.invoke(state);
-    return { messages: { role: "ai", content: response.finalWriteUp }  };
+    return { messages: { role: "ai", content: "```\n"+response.finalWriteUp }  };
 };
 
 const processPostWriteUp = async (state: typeof ConversationState.State) => {

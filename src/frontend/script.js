@@ -32,10 +32,14 @@ const generate = async (text) => {
 
     const aiDiv = document.createElement('div');
     aiDiv.className = 'flex justify-start';
-
-    const responseDiv = document.createElement('div');
-    responseDiv.className = 'bg-zinc-700 text-gray-100 rounded-xl rounded-tl-none p-4 shadow-lg max-w-lg overflow-x-auto text-wrap: wrap;';
-    responseDiv.innerHTML = marked.parse(llmResponse);
+    
+    const responseDiv=document.createElement('div');
+    responseDiv.className=  (llmResponse.startsWith("```") ? 
+                                'whitespace-pre font-mono bg-gray-900 text-green-300' : 
+                                'bg-zinc-700 text-gray-100'
+                            ) + 
+                            'rounded-xl rounded-tl-none p-4 shadow-lg max-w-lg overflow-x-auto';
+    responseDiv.textContent = llmResponse;
 
     loader.remove();
     aiDiv.appendChild(responseDiv);
