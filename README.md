@@ -6,6 +6,3 @@ A Multi-Agentic AI performing content generation (for Articles, Post, Blogs) bas
 <img width="2496" height="1289" alt="Server_Backend" src="https://github.com/user-attachments/assets/01f9af3b-fa34-455d-8f3e-e4297cf346fb" />
 <img width="2489" height="1355" alt="Final_output" src="https://github.com/user-attachments/assets/9a7afb97-cd36-47b4-8bb6-3a220ff385ea" />
 </p>
-
-
-
