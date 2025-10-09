@@ -1,4 +1,4 @@
-import { FormatterAgent } from "./graph.ts"
+import { FormatterAgent } from "../src/backend/formatter/graph.ts"
 
 const main = async () => {
     let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", finalDraft: finalDraft };

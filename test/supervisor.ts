@@ -1,4 +1,4 @@
-import { SupervisorAgent } from "./graph.ts"
+import { SupervisorAgent } from "../src/backend/supervisor/graph.ts"
 
 const main = async () => {
     const response = await SupervisorAgent.invoke({ topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md" });

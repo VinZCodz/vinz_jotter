@@ -1,4 +1,4 @@
-import { WriterAgent } from "./graph.ts"
+import { WriterAgent } from "../src/backend/writer/graph.ts"
 
 const main = async () => {
     let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData, keyFeatures: keyFeatures, hookLines: hookLines };

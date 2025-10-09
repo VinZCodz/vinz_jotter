@@ -1,4 +1,4 @@
-import { JotterAgent } from "./graph.ts"
+import { JotterAgent } from "../src/backend/conversational/graph.ts"
 
 const main = async () => {
     const sessionId = 1;

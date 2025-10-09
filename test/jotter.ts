@@ -1,5 +1,5 @@
 import * as readline from 'node:readline/promises';
-import { JotterAgent } from "./conversational/graph.ts";
+import { JotterAgent } from "../src/backend/conversational/graph.ts";
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const main = async () => {
