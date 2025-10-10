@@ -1,4 +1,4 @@
-import { AnalyzerAgent } from "../src/backend/researcher/graph.ts"
+import { AnalyzerAgent } from "../src/backend/analyzer/graph.ts"
 
 const main = async () => {
     let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData };
