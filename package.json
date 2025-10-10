@@ -5,13 +5,13 @@
   "scripts": {
     "server:up": "bun run src/backend/server.ts",
     "test:e2e": "bun run test/jotter.ts",
+    "test:graph": "bun run mermaid-graph/graphVisualize.js",
     "test:converse": "bun run test/conversational.ts",
     "test:supervisor": "bun run test/supervisor.ts",
     "test:researcher": "bun run test/researcher.ts",
     "test:analyzer": "bun run test/analyzer.ts",
     "test:writer": "bun run test/writer.ts",
-    "test:formatter": "bun run test/formatter.ts",
-    "graph": "bun run mermaid-graph/graphVisualize.js"
+    "test:formatter": "bun run test/formatter.ts"
   },
   "private": true,
   "devDependencies": {
