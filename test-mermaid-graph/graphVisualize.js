@@ -22,7 +22,6 @@ const main = async () => {
             [ResearchAgent, "researcher"], [AnalyzerAgent, "analyzer"],
             [WriterAgent, "writer"], [FormatterAgent, "formatter"]
         ]) await graphVisualize(agent[0], agent[1]);
-
     } finally {
         console.warn(`\n Flow Diagram Ready!\n`);
     };
