@@ -1,4 +1,4 @@
-import { ResearchAgent } from "./graph.ts"
+import { ResearchAgent } from "../src/backend/researcher/graph.ts"
 
 const main = async () => {
     const state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md" };

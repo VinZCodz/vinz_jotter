@@ -1,17 +1,12 @@
-import { WriterAgent } from "./graph.ts"
+import { AnalyzerAgent } from "../src/backend/analyzer/graph.ts"
 
 const main = async () => {
-    let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData, keyFeatures: keyFeatures, hookLines: hookLines };
+    let state = { topic: "Quantum Entanglement", audience: "tech", tone: "formal", depth: "beginner", formatting: ".md", researchData: researchData };
 
-    const { draft } = await WriterAgent.invoke({
-        messages: [
-            { role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) },
-            { role: "ai", content: JSON.stringify(state, ['keyFeatures', 'hookLines']) }
-        ],
-        researchData: state.researchData
-    });
+    const { keyFeatures, hookLines } = await AnalyzerAgent.invoke({ messages: [{ role: "user", content: JSON.stringify(state, ['topic', 'audience', 'depth', 'tone']) }], researchData: state.researchData });
 
-    console.log(`finalDraft:\n ${draft}`);
+    console.log(`keyFeatures:\n ${keyFeatures}`);
+    console.log(`hookLines:\n ${hookLines}`);
 }
 
 const researchData = [
@@ -30,14 +25,6 @@ const researchData = [
     "An everyday analogy: think of two perfectly synced dice that are rolled far apart. When you look at one die and see a ‘6’, you instantly know the other die shows a ‘1’ (if the dice were prepared in an anti‑correlated state). Unlike classical dice, quantum dice are truly random until observed, and the correlation cannot be explained by any pre‑set hidden values. – Source: Reddit (ELI5 Quantum Entanglement)",
     "Entanglement is mathematically described by a joint wavefunction that cannot be factored into separate wavefunctions for each particle. For two qubits, the Bell state |Φ⁺⟩ = (|00⟩ + |11⟩)/√2 is a prototypical maximally entangled state used in many protocols. – Source: Quanta Magazine (Entanglement Made Simple)",
     "Key terminology for beginners:\n- **Qubit**: quantum bit, can be in superposition of 0 and 1.\n- **Superposition**: simultaneous existence in multiple states.\n- **Wavefunction collapse**: transition from superposition to a definite state upon measurement.\n- **Bell inequality**: mathematical bound that local realistic theories must satisfy; violation indicates entanglement.\n- **Non‑locality**: correlations that cannot be explained by any signal traveling at or below light speed.\n- **Quantum teleportation**: transfer of quantum state using entanglement and classical communication.\n- **Quantum key distribution (QKD)**: secure communication method leveraging entanglement.\n– Source: Wikipedia (Quantum entanglement)"];
-
-const keyFeatures = [
-    "Entangled particles share a single, inseparable state—measure one and you instantly know the other, no matter how far apart.,Bell’s theorem (1964) and Aspect’s 1982 experiment proved this ‘spooky’ link can’t be explained by any local hidden variables.,Entanglement powers quantum cryptography: eavesdropping disturbs the link and immediately raises the alarm.,Quantum teleportation moves a particle’s exact state without moving the particle—just entanglement plus two classical bits.,n entangled qubits represent 2ⁿ states at once, giving quantum computers their exponential edge.,Satellite-based entanglement (1 200 km) has already been demonstrated, laying the groundwork for a global quantum internet."
-];
-
-const hookLines = [
-    "What if tweaking a particle in your lab instantly decided the fate of its twin in another galaxy?,Entanglement isn’t sci-fi—it’s the engine behind unbreakable codes and computers that check a million answers at once."
-];
 
 await main()
     .finally(() => {
