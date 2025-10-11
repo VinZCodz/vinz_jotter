@@ -1,11 +1,15 @@
 # Vinz Jotter AI
 A Multi-Agentic AI performing content generation (for Articles, Post, Blogs) based on user query and further delegating/suprivising it to sub agents to research, analyze and critique before final draft.
 
-To understand the below concepts, please have a look here: https://www.linkedin.com/pulse/essential-knowledge-build-multi-agent-system-mas-vinayaka-swamy-h-m-xr4ac
+<p align="center">
+<img width="2405" height="1329" alt="Initial_Screen" src="https://github.com/user-attachments/assets/d5042c44-1e49-4fc9-ba99-0483a1517408" />
+</p>
 
-I've explained in great detail from basic to advanced coverage.
+Visit this article to understand concepts in detail: 
 
-## Concepts Implemented:
+https://www.linkedin.com/pulse/essential-knowledge-build-multi-agent-system-mas-vinayaka-swamy-h-m-xr4ac
+
+## Main Modules:
 - Multi Agentic System.
 - Custom Sub Graph, Sub State and Hand-Off to Agents.
 - Multi Agentic Patterns like.
