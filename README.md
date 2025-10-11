@@ -1,15 +1,19 @@
 # Vinz Jotter AI
 A Multi-Agentic AI performing content generation (for Articles, Post, Blogs) based on user query and further delegating/suprivising it to sub agents to research, analyze and critique before final draft.
 
+To understand the below concepts, please have a look here: https://www.linkedin.com/pulse/essential-knowledge-build-multi-agent-system-mas-vinayaka-swamy-h-m-xr4ac
+
+I've explained in great detail from basic to advanced coverage.
+
 ## Concepts Implemented:
-- Multi Agentic System:
-- Custom Sub Graph, Sub State and Hand-Off to Agents:
-- Multi Agentic Patterns like: 
-	- Supervisor:
-	- Reflection:
-	- Router:
-- Prompt Template and Structured Output:
-- Multiple Models of Groq Cloud:
+- Multi Agentic System.
+- Custom Sub Graph, Sub State and Hand-Off to Agents.
+- Multi Agentic Patterns like.
+	- Supervisor.
+	- Reflection.
+	- Router.
+- Prompt Template and Structured Output.
+- Multiple Models of Groq Cloud.
 
 ## Multi Agentic System Flow:
 - **Conversational Agent Flow** with the User: To enrich Supervisor Agent with user inputs and hands-off.
@@ -48,4 +52,5 @@ A Multi-Agentic AI performing content generation (for Articles, Post, Blogs) bas
 <img width="2449" height="1353" alt="Server_User_In" src="https://github.com/user-attachments/assets/37b7fed6-4377-4f5e-96b7-97b97248abb6" />
 <img width="2496" height="1289" alt="Server_Backend" src="https://github.com/user-attachments/assets/01f9af3b-fa34-455d-8f3e-e4297cf346fb" />
 <img width="2489" height="1355" alt="Final_output" src="https://github.com/user-attachments/assets/9a7afb97-cd36-47b4-8bb6-3a220ff385ea" />
+<img width="2500" height="1216" alt="html_md" src="https://github.com/user-attachments/assets/9c47a918-0285-4de6-ba70-323c2dd83a8a" />
 </p>
